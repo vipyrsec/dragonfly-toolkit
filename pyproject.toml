@@ -1,0 +1,46 @@
+[project]
+name = "dragonfly-toolkit"
+version = "0.1.0"
+dynamic = ["dependencies"]
+
+[project.urls]
+repository = "https://github.com/vipyrsec/dragonfly-toolkit"
+documentation = "https://docs.vipyrsec.com/dragonfly-toolkit/"
+
+[project.optional-dependencies]
+dev = [
+    "pip-tools",
+    "pre-commit",
+    "black",
+    "isort",
+    "ruff",
+]
+tests = [
+    "pytest",
+]
+docs = [
+    "sphinx",
+    "furo",
+    "sphinx-autoapi",
+    "releases",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic.dependencies]
+file = ["requirements.txt"]
+
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.ruff]
+line-length = 120
