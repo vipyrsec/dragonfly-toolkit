@@ -1,2 +1,8 @@
-textual[dev]
+# lib
+letsbuilda-pypi
+
+# cli
 typer[all]
+
+# tui
+textual[dev]
