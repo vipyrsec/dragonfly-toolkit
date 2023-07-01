@@ -1,6 +1,9 @@
 # JetBrains
 .idea
 
+# VS Code
+.vscode
+
 # Packaging
 *.egg-info
 dist

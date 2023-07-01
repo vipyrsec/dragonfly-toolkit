@@ -6,6 +6,7 @@ app = typer.Typer()
 @app.command()
 def interactive():
     from dragonfly_tui.app import DragonflyToolkitApp
+
     DragonflyToolkitApp().run()
 
 
