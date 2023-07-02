@@ -3,3 +3,6 @@
 
 Changelog
 =========
+
+- :release:`0.1.0 <1st July 2023>`
+- :feature:`1` Setup package
