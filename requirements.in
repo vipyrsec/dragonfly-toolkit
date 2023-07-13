@@ -1,8 +1,8 @@
 # lib
-letsbuilda-pypi
+letsbuilda-pypi==5.0.0b1
 
 # cli
 typer[all]
 
 # tui
-textual[dev]
+textual
