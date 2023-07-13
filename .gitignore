@@ -1,2 +1,20 @@
-# Python
+# JetBrains
+.idea
+
+# VS Code
+.vscode
+
+# Packaging
 *.egg-info
+dist
+build
+
+# Cache
+__pycache__
+*.pyc
+
+# Docs
+docs/build
+
+# local env
+.env*
