@@ -40,13 +40,21 @@ function Invoke-Install-Dev
 
 function Invoke-Update-Deps
 {
-    pip-compile --output-file requirements.txt --resolver=backtracking requirements.in
+    python -m pip install --upgrade --editable ".[dev, tests, docs]"
+    python -m pip install --upgrade pip-tools
+    pip-compile --resolver=backtracking requirements/requirements.in --output-file requirements/requirements.txt
+    pip-compile --resolver=backtracking requirements/requirements-dev.in --output-file requirements/requirements-dev.txt
+    pip-compile --resolver=backtracking requirements/requirements-tests.in --output-file requirements/requirements-tests.txt
+    pip-compile --resolver=backtracking requirements/requirements-docs.in --output-file requirements/requirements-docs.txt
 }
 
 function Invoke-Upgrade-Deps
 {
-    pre-commit autoupdate
-    pip-compile --output-file requirements.txt --resolver=backtracking --upgrade requirements.in
+    python -m pip install --upgrade pip-tools
+    pip-compile --resolver=backtracking --upgrade requirements/requirements.in --output-file requirements/requirements.txt
+    pip-compile --resolver=backtracking --upgrade requirements/requirements-dev.in --output-file requirements/requirements-dev.txt
+    pip-compile --resolver=backtracking --upgrade requirements/requirements-tests.in --output-file requirements/requirements-tests.txt
+    pip-compile --resolver=backtracking --upgrade requirements/requirements-docs.in --output-file requirements/requirements-docs.txt
 }
 
 function Invoke-Lint

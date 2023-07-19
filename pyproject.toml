@@ -1,31 +1,11 @@
 [project]
 name = "dragonfly-toolkit"
 version = "0.1.0"
-dynamic = ["dependencies"]
+dynamic = ["dependencies", "optional-dependencies"]
 
 [project.urls]
 repository = "https://github.com/vipyrsec/dragonfly-toolkit"
 documentation = "https://docs.vipyrsec.com/dragonfly-toolkit/"
-
-[project.optional-dependencies]
-dev = [
-    "pip-tools",
-    "pre-commit",
-    "black",
-    "isort",
-    "ruff",
-
-    "textual-dev",
-]
-tests = [
-    "pytest",
-]
-docs = [
-    "sphinx",
-    "furo",
-    "sphinx-autoapi",
-    "releases",
-]
 
 [project.scripts]
 dragonfly = "dragonfly_cli.app:app"
@@ -36,6 +16,11 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.dynamic.dependencies]
 file = ["requirements.txt"]
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = { file = ["requirements/requirements-dev.txt"] }
+tests = { file = ["requirements/requirements-tests.txt"] }
+docs = { file = ["requirements/requirements-docs.txt"] }
 
 [tool.black]
 target-version = ["py311"]
