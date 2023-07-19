@@ -50,7 +50,8 @@ function Invoke-Update-Deps
 
 function Invoke-Upgrade-Deps
 {
-    python -m pip install --upgrade pip-tools
+    python -m pip install --upgrade pip-tools pre-commit
+    pre-commit autoupdate
     pip-compile --resolver=backtracking --upgrade requirements/requirements.in --output-file requirements/requirements.txt
     pip-compile --resolver=backtracking --upgrade requirements/requirements-dev.in --output-file requirements/requirements-dev.txt
     pip-compile --resolver=backtracking --upgrade requirements/requirements-tests.in --output-file requirements/requirements-tests.txt
