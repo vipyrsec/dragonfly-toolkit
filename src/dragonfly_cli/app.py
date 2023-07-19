@@ -1,7 +1,8 @@
-from typing import Annotated,Optional
+from typing import Annotated, Optional
 
 import typer
 from requests import Session
+from rich import print
 
 from letsbuilda.pypi import PyPIServices
 
@@ -16,7 +17,7 @@ def interactive():
 
 
 @app.command()
-def package_metadata(name: str, version: Annotated[Optional[str] , typer.Argument()] = None):
+def package_metadata(name: str, version: Annotated[Optional[str], typer.Argument()] = None):
     http_session = Session()
     client = PyPIServices(http_session)
     print(client.get_package_metadata(name, version))

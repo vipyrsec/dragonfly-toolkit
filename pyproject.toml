@@ -30,6 +30,7 @@ line-length = 120
 select = ["ALL"]
 ignore = [
   "PLC0414", # (Import alias does not rename original package) - Re-exporting
+  "UP007", # (Use `X | Y` for type annotations) - Click doesn't support these
 ]
 target-version = "py311"
 line-length = 120
