@@ -1,4 +1,9 @@
+from typing import Annotated,Optional
+
 import typer
+from requests import Session
+
+from letsbuilda.pypi import PyPIServices
 
 app = typer.Typer()
 
@@ -11,8 +16,7 @@ def interactive():
 
 
 @app.command()
-def goodbye(name: str, formal: bool = False):
-    if formal:
-        print(f"Goodbye Ms. {name}. Have a good day.")
-    else:
-        print(f"Bye {name}!")
+def package_metadata(name: str, version: Annotated[Optional[str] , typer.Argument()] = None):
+    http_session = Session()
+    client = PyPIServices(http_session)
+    print(client.get_package_metadata(name, version))
