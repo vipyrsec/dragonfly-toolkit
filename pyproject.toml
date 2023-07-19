@@ -38,14 +38,22 @@ build-backend = "setuptools.build_meta"
 file = ["requirements.txt"]
 
 [tool.black]
-target-version = ["py310"]
+target-version = ["py311"]
 line-length = 120
-
-[tool.isort]
-profile = "black"
-
-[tool.pylint.format]
-max-line-length = 120
 
 [tool.ruff]
+select = ["ALL"]
+ignore = [
+  "PLC0414", # (Import alias does not rename original package) - Re-exporting
+]
+target-version = "py311"
 line-length = 120
+
+[tool.ruff.isort]
+known-first-party = ["letsbuilda.pypi"]
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.pytest.ini_options]
+addopts = "tests -r a -v --doctest-modules src"
