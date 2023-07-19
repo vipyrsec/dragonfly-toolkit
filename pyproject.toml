@@ -14,6 +14,8 @@ dev = [
     "black",
     "isort",
     "ruff",
+
+    "textual-dev",
 ]
 tests = [
     "pytest",
