@@ -1,4 +1,4 @@
-from typing import Annotated,Optional
+from typing import Annotated, Optional
 
 import typer
 from requests import Session
