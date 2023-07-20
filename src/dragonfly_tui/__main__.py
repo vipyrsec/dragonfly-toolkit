@@ -1,3 +1,5 @@
+"""App runner."""
+
 from .app import DragonflyToolkitApp
 
 if __name__ == "__main__":

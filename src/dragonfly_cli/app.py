@@ -1,23 +1,16 @@
-from typing import Annotated, Optional
+"""App builder."""
 
 import typer
-from requests import Session
-from rich import print
 
-from letsbuilda.pypi import PyPIServices
+from .package_commands import app as packages_app
 
 app = typer.Typer()
+app.add_typer(packages_app, name="packages")
 
 
 @app.command()
-def interactive():
+def interactive() -> None:
+    """Launch the TUI."""
     from dragonfly_tui.app import DragonflyToolkitApp
 
     DragonflyToolkitApp().run()
-
-
-@app.command()
-def package_metadata(name: str, version: Annotated[Optional[str], typer.Argument()] = None):
-    http_session = Session()
-    client = PyPIServices(http_session)
-    print(client.get_package_metadata(name, version))

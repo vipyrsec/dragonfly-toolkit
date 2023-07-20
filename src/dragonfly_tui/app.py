@@ -1,3 +1,7 @@
+"""App builder."""
+
+from typing import ClassVar, Self
+
 from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header
 
@@ -5,13 +9,13 @@ from textual.widgets import Footer, Header
 class DragonflyToolkitApp(App):
     """A Textual app to interact with Vipyr Dragonfly tooling."""
 
-    BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
+    BINDINGS: ClassVar[list[tuple[str, str, str]]] = [("d", "toggle_dark", "Toggle dark mode")]
 
-    def compose(self) -> ComposeResult:
+    def compose(self: Self) -> ComposeResult:
         """Create child widgets for the app."""
         yield Header()
         yield Footer()
 
-    def action_toggle_dark(self) -> None:
-        """An action to toggle dark mode."""
+    def action_toggle_dark(self: Self) -> None:
+        """Toggle dark mode."""
         self.dark = not self.dark
