@@ -2,10 +2,10 @@
 
 import typer
 
-from .package_commands import app as packages_app
+from .commands_pypi import app as pypi_app
 
 app = typer.Typer()
-app.add_typer(packages_app, name="packages")
+app.add_typer(pypi_app, name="pypi")
 
 
 @app.command()
