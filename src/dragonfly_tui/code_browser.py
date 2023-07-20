@@ -1,9 +1,16 @@
-"""App builder."""
+"""
+Code browser example.
 
-from typing import ClassVar
+Run with:
+
+    python code_browser.py PATH
+"""
+
+import sys
 
 from rich.syntax import Syntax
 from rich.traceback import Traceback
+
 from textual import events
 from textual.app import App, ComposeResult
 from textual.containers import Container, VerticalScroll
@@ -11,12 +18,11 @@ from textual.reactive import var
 from textual.widgets import DirectoryTree, Footer, Header, Static
 
 
-class DragonflyToolkitApp(App):
-    """A Textual app to interact with Vipyr Dragonfly tooling."""
+class CodeBrowser(App):
+    """Textual code browser app."""
 
-    TITLE = "Dragonfly Toolkit"
     CSS_PATH = "code_browser.css"
-    BINDINGS: ClassVar[list[tuple[str, str, str]]] = [
+    BINDINGS = [
         ("f", "toggle_files", "Toggle Files"),
         ("q", "quit", "Quit"),
     ]
@@ -29,7 +35,7 @@ class DragonflyToolkitApp(App):
 
     def compose(self) -> ComposeResult:
         """Compose our UI."""
-        path = "./"
+        path = "./" if len(sys.argv) < 2 else sys.argv[1]
         yield Header()
         with Container():
             yield DirectoryTree(path, id="tree-view")
@@ -40,7 +46,9 @@ class DragonflyToolkitApp(App):
     def on_mount(self, event: events.Mount) -> None:
         self.query_one(DirectoryTree).focus()
 
-    def on_directory_tree_file_selected(self, event: DirectoryTree.FileSelected) -> None:
+    def on_directory_tree_file_selected(
+        self, event: DirectoryTree.FileSelected
+    ) -> None:
         """Called when the user click a file in the directory tree."""
         event.stop()
         code_view = self.query_one("#code", Static)
@@ -66,4 +74,4 @@ class DragonflyToolkitApp(App):
 
 
 if __name__ == "__main__":
-    DragonflyToolkitApp().run()
+    CodeBrowser().run()
