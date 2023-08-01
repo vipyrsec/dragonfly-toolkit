@@ -84,7 +84,7 @@ pyyaml==6.0.1
     # via pre-commit
 rich==13.4.2
     # via textual
-ruff==0.0.278
+ruff==0.0.282
     # via -r requirements/requirements-dev.in
 textual==0.30.0
     # via textual-dev
