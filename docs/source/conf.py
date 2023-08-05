@@ -53,16 +53,16 @@ releases_github_path = REPO_LINK.removeprefix("https://github.com/")
 releases_release_uri = f"{REPO_LINK}/releases/tag/v%s"
 
 
-def linkcode_resolve(domain, info):
-    """linkcode_resolve"""
+def linkcode_resolve(domain: str, info: dict) -> str | None:
+    """linkcode_resolve."""
     if domain != "py":
         return None
     if not info["module"]:
         return None
 
-    import importlib  # pylint: disable=import-outside-toplevel
-    import inspect  # pylint: disable=import-outside-toplevel
-    import types  # pylint: disable=import-outside-toplevel
+    import importlib
+    import inspect
+    import types
 
     mod = importlib.import_module(info["module"])
 
@@ -76,14 +76,12 @@ def linkcode_resolve(domain, info):
 
     if isinstance(
         val,
-        (
-            types.ModuleType,
-            types.MethodType,
-            types.FunctionType,
-            types.TracebackType,
-            types.FrameType,
-            types.CodeType,
-        ),
+        types.ModuleType
+        | types.MethodType
+        | types.FunctionType
+        | types.TracebackType
+        | types.FrameType
+        | types.CodeType,
     ):
         try:
             lines, first = inspect.getsourcelines(val)
