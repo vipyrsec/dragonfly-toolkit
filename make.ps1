@@ -42,20 +42,20 @@ function Invoke-Update-Deps
 {
     python -m pip install --upgrade --editable ".[dev, tests, docs]"
     python -m pip install --upgrade pip-tools
-    pip-compile --resolver=backtracking requirements/requirements.in --output-file requirements/requirements.txt
-    pip-compile --resolver=backtracking requirements/requirements-dev.in --output-file requirements/requirements-dev.txt
-    pip-compile --resolver=backtracking requirements/requirements-tests.in --output-file requirements/requirements-tests.txt
-    pip-compile --resolver=backtracking requirements/requirements-docs.in --output-file requirements/requirements-docs.txt
+    pip-compile --no-emit-index-url requirements/requirements.in
+    pip-compile --no-emit-index-url requirements/requirements-dev.in
+    pip-compile --no-emit-index-url requirements/requirements-tests.in
+    pip-compile --no-emit-index-url requirements/requirements-docs.in
 }
 
 function Invoke-Upgrade-Deps
 {
     python -m pip install --upgrade pip-tools pre-commit
     pre-commit autoupdate
-    pip-compile --resolver=backtracking --upgrade requirements/requirements.in --output-file requirements/requirements.txt
-    pip-compile --resolver=backtracking --upgrade requirements/requirements-dev.in --output-file requirements/requirements-dev.txt
-    pip-compile --resolver=backtracking --upgrade requirements/requirements-tests.in --output-file requirements/requirements-tests.txt
-    pip-compile --resolver=backtracking --upgrade requirements/requirements-docs.in --output-file requirements/requirements-docs.txt
+    pip-compile --upgrade --no-emit-index-url requirements/requirements.in
+    pip-compile --upgrade --no-emit-index-url requirements/requirements-dev.in
+    pip-compile --upgrade --no-emit-index-url requirements/requirements-tests.in
+    pip-compile --upgrade --no-emit-index-url requirements/requirements-docs.in
 }
 
 function Invoke-Lint

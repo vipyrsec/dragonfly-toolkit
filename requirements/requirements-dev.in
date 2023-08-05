@@ -1,7 +1,6 @@
 pip-tools
 pre-commit
 black
-isort
 ruff
 
 textual-dev
