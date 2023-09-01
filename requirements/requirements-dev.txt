@@ -84,7 +84,7 @@ rich==13.5.2
     # via textual
 ruff==0.0.282
     # via -r requirements/requirements-dev.in
-textual==0.32.0
+textual==0.35.1
     # via textual-dev
 textual-dev==1.1.0
     # via -r requirements/requirements-dev.in
