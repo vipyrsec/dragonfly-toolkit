@@ -66,7 +66,7 @@ packaging==23.1
     #   build
 pathspec==0.11.2
     # via black
-pip-tools==7.2.0
+pip-tools==7.3.0
     # via -r requirements/requirements-dev.in
 platformdirs==3.10.0
     # via
