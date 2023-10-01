@@ -52,13 +52,14 @@ snowballstemmer==2.2.0
     # via sphinx
 soupsieve==2.4.1
     # via beautifulsoup4
-sphinx==7.1.2
+sphinx==7.2.6
     # via
     #   -r requirements/requirements-docs.in
     #   furo
     #   releases
     #   sphinx-autoapi
     #   sphinx-basic-ng
+    #   sphinxcontrib-serializinghtml
 sphinx-autoapi==2.1.1
     # via -r requirements/requirements-docs.in
 sphinx-basic-ng==1.0.0b2
@@ -73,7 +74,7 @@ sphinxcontrib-jsmath==1.0.1
     # via sphinx
 sphinxcontrib-qthelp==1.0.3
     # via sphinx
-sphinxcontrib-serializinghtml==1.1.5
+sphinxcontrib-serializinghtml==1.1.9
     # via sphinx
 urllib3==2.0.4
     # via requests
