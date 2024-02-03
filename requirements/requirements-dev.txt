@@ -12,7 +12,7 @@ async-timeout==4.0.2
     # via aiohttp
 attrs==23.1.0
     # via aiohttp
-black==23.9.1
+black==24.1.1
     # via -r requirements/requirements-dev.in
 build==0.10.0
     # via pip-tools
@@ -37,12 +37,11 @@ identify==2.5.26
     # via pre-commit
 idna==3.4
     # via yarl
-importlib-metadata==6.8.0
-    # via textual
 linkify-it-py==2.0.2
     # via markdown-it-py
 markdown-it-py[linkify,plugins]==3.0.0
     # via
+    #   markdown-it-py
     #   mdit-py-plugins
     #   rich
     #   textual
@@ -72,7 +71,7 @@ platformdirs==3.10.0
     # via
     #   black
     #   virtualenv
-pre-commit==3.4.0
+pre-commit==3.6.0
     # via -r requirements/requirements-dev.in
 pygments==2.15.1
     # via rich
@@ -82,18 +81,12 @@ pyyaml==6.0.1
     # via pre-commit
 rich==13.5.2
     # via textual
-ruff==0.0.291
+ruff==0.2.0
     # via -r requirements/requirements-dev.in
-textual==0.38.1
+textual==0.48.2
     # via textual-dev
-textual-dev==1.2.1
+textual-dev==1.4.0
     # via -r requirements/requirements-dev.in
-tree-sitter==0.20.2
-    # via
-    #   textual
-    #   tree-sitter-languages
-tree-sitter-languages==1.7.0
-    # via textual
 typing-extensions==4.7.1
     # via
     #   textual
@@ -106,8 +99,6 @@ wheel==0.41.1
     # via pip-tools
 yarl==1.9.2
     # via aiohttp
-zipp==3.16.2
-    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
