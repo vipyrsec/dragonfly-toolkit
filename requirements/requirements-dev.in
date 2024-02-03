@@ -1,6 +1,9 @@
+# Constrain versions installed to be compatible with core dependencies
+--constraint requirements.txt
+
 pip-tools
 pre-commit
-black
 ruff
+mypy
 
 textual-dev

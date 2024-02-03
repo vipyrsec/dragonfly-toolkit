@@ -1,5 +1,5 @@
 # lib
-letsbuilda-pypi==5.0.0
+letsbuilda-pypi
 
 # cli
 typer[all]
