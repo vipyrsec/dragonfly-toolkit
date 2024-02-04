@@ -6,12 +6,14 @@ from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header
 
 
-class DragonflyToolkitApp(App):
+class DragonflyToolkitApp(App):  # type: ignore[type-arg]
     """A Textual app to interact with Vipyr Dragonfly tooling."""
 
-    BINDINGS: ClassVar[list[tuple[str, str, str]]] = [("d", "toggle_dark", "Toggle dark mode")]
+    BINDINGS: ClassVar[list[tuple[str, str, str]]] = [  # type: ignore[assignment]
+        ("d", "toggle_dark", "Toggle dark mode"),
+    ]
 
-    def compose(self: Self) -> ComposeResult:
+    def compose(self: Self) -> ComposeResult:  # noqa: PLR6301
         """Create child widgets for the app."""
         yield Header()
         yield Footer()

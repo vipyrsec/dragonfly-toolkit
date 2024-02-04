@@ -11,7 +11,7 @@ COMMANDS
     install-dev       install local package in editable mode
     update-deps       update the dependencies
     upgrade-deps      upgrade the dependencies
-    lint              run `isort` and `black`
+    lint              run `pre-commit` and `ruff`
     test              run `pytest`
     build-dist        run `python -m build`
     clean             delete generated content
@@ -40,29 +40,29 @@ function Invoke-Install-Dev
 
 function Invoke-Update-Deps
 {
-    python -m pip install --upgrade --editable ".[dev, tests, docs]"
     python -m pip install --upgrade pip-tools
-    pip-compile --no-emit-index-url requirements/requirements.in
-    pip-compile --no-emit-index-url requirements/requirements-dev.in
-    pip-compile --no-emit-index-url requirements/requirements-tests.in
-    pip-compile --no-emit-index-url requirements/requirements-docs.in
+    pip-compile requirements/requirements.in
+    pip-compile requirements/requirements-dev.in
+    pip-compile requirements/requirements-tests.in
+    pip-compile requirements/requirements-docs.in
 }
 
 function Invoke-Upgrade-Deps
 {
     python -m pip install --upgrade pip-tools pre-commit
     pre-commit autoupdate
-    pip-compile --upgrade --no-emit-index-url requirements/requirements.in
-    pip-compile --upgrade --no-emit-index-url requirements/requirements-dev.in
-    pip-compile --upgrade --no-emit-index-url requirements/requirements-tests.in
-    pip-compile --upgrade --no-emit-index-url requirements/requirements-docs.in
+    pip-compile --upgrade requirements/requirements.in
+    pip-compile --upgrade requirements/requirements-dev.in
+    pip-compile --upgrade requirements/requirements-tests.in
+    pip-compile --upgrade requirements/requirements-docs.in
 }
 
 function Invoke-Lint
 {
     pre-commit run --all-files
-    python -m black .
     python -m ruff --fix .
+    python -m ruff format .
+    python -m mypy --strict src/
 }
 
 function Invoke-Test

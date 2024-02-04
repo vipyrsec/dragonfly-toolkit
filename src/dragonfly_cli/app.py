@@ -11,6 +11,6 @@ app.add_typer(pypi_app, name="pypi")
 @app.command()
 def interactive() -> None:
     """Launch the TUI."""
-    from dragonfly_tui.app import DragonflyToolkitApp
+    from dragonfly_tui.app import DragonflyToolkitApp  # noqa: PLC0415
 
     DragonflyToolkitApp().run()
