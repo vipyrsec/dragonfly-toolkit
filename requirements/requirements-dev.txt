@@ -40,7 +40,6 @@ linkify-it-py==2.0.2
 markdown-it-py[linkify,plugins]==3.0.0
     # via
     #   -c requirements/requirements.txt
-    #   markdown-it-py
     #   mdit-py-plugins
     #   rich
     #   textual
@@ -58,7 +57,7 @@ multidict==6.0.5
     # via
     #   aiohttp
     #   yarl
-mypy==1.8.0
+mypy==1.9.0
     # via -r requirements/requirements-dev.in
 mypy-extensions==1.0.0
     # via mypy
@@ -66,11 +65,11 @@ nodeenv==1.8.0
     # via pre-commit
 packaging==23.2
     # via build
-pip-tools==7.4.0
+pip-tools==7.4.1
     # via -r requirements/requirements-dev.in
 platformdirs==4.2.0
     # via virtualenv
-pre-commit==3.6.2
+pre-commit==3.7.0
     # via -r requirements/requirements-dev.in
 pygments==2.17.2
     # via
@@ -86,9 +85,9 @@ rich==13.7.0
     # via
     #   -c requirements/requirements.txt
     #   textual
-ruff==0.3.0
+ruff==0.3.5
     # via -r requirements/requirements-dev.in
-textual==0.52.1
+textual==0.55.0
     # via
     #   -c requirements/requirements.txt
     #   textual-dev
