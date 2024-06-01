@@ -69,7 +69,7 @@ pip-tools==7.4.1
     # via -r requirements/requirements-dev.in
 platformdirs==4.2.0
     # via virtualenv
-pre-commit==3.7.0
+pre-commit==3.7.1
     # via -r requirements/requirements-dev.in
 pygments==2.17.2
     # via
@@ -85,9 +85,9 @@ rich==13.7.0
     # via
     #   -c requirements/requirements.txt
     #   textual
-ruff==0.4.2
+ruff==0.4.7
     # via -r requirements/requirements-dev.in
-textual==0.58.1
+textual==0.63.6
     # via
     #   -c requirements/requirements.txt
     #   textual-dev
